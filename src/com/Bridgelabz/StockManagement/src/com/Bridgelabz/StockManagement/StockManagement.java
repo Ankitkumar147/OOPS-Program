@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class StockManagement {
 
     public static void main(String[] args) {
+        int valuePerShare, valuation = 0;
         Scanner sc1 = new Scanner(System.in);
         Stocks newShare = new Stocks();
         System.out.println("Welcome to the StockManagement Program.");
@@ -14,10 +15,15 @@ public class StockManagement {
             System.out.println("Enter Share Name:- ");
             newShare.setStockName(sc1.next());
             System.out.println("Enter share price");
-            newShare.setSharePrice(sc1.nextDouble());
+            newShare.setSharePrice(sc1.nextInt());
             System.out.println("Enter the Number of Shares");
-            newShare.setShareNumber(sc1.nextDouble());
-            newShare.CalculateValue();
+            newShare.setShareNumber(sc1.nextInt());
+            //newShare.calculateValue();
+            //newShare.totalValuation();
+            valuePerShare = shareNum*newShare.getSharePrice();
+            valuation = valuePerShare+valuation;
         }
+        sc1.close();
+        return valuation;
     }
 }
